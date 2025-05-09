@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #e3f2fd, #e8f5e9);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .result-container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        h2 {
+            color: #1e88e5;
+        }
+
+        p {
+            font-size: 18px;
+            color: #2e7d32;
+            margin: 12px 0;
+        }
+
+        h3 {
+            margin-top: 30px;
+            color: #00796b;
+        }
+
+        img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.02);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h2>Prediction Result</h2>
+	<p><strong>Diagnosis:</strong> The patient is <span style="color: red;">{{ 'Diseased' if prediction == 1 else 'Not Diseased' }}</span>.</p>
+	<p><strong>Confidence:</strong></p>
+	<ul style="list-style-type: none; padding-left: 0;">
+    	    <li>Probability of being <strong>Not Diseased</strong>: {{ '%.2f' % (prob_0 * 100) }}%</li>
+            <li>Probability of being <strong>Diseased</strong>: {{ '%.2f' % (prob_1* 100)}}%</li>
+	</ul>
+
+        
+        <h3>Grad-CAM Heatmap:</h3>
+        <img src="{{ url_for('static', filename=heatmap_file) }}" alt="Grad-CAM Heatmap">
+    </div>
+</body>
+</html>
