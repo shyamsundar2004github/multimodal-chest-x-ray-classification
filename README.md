@@ -51,15 +51,14 @@ Classification Report:
 
            0       0.87      0.85      0.86        61
            1       0.88      0.89      0.88        72
-
+           
     accuracy                           0.87       133
-   macro avg       0.87      0.87      0.87       133
-weighted avg       0.87      0.87      0.87       133
 
-Precision: 0.8721
-Recall: 0.8722
-F1-Score: 0.8721
-Test Accuracy: 0.8722
+
+-Precision: 0.8721
+-Recall: 0.8722
+-F1-Score: 0.8721
+-Test Accuracy: 0.8722
 
 # confusion matrix
 ![image](https://github.com/user-attachments/assets/dd8d66ac-da3f-41ae-9c41-34fd5e1e827e)
